@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Chat";
+}
+
+<h2>Chat</h2>
+
+<div ng-app="chatApp">
+    <div class="row" ng-controller="chatController">
+        <div class="container">
+            
+            <input type="text" id="message" name="name" ng-model="newMsg.name" />
+            <input type="text" id="displayname" name="msg" ng-model="newMsg.msg" />
+            <input type="button" id="sendmessage" value="Send" ng-click="postAnswer()" />
+
+            <ul id="discussion" ng-repeat="msg in Messages">
+                <li><strong>{{msg.name}} -></strong>{{msg.message}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/signalr/hubs"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/controller.js"></script>
+}
